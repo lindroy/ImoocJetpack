@@ -1,0 +1,26 @@
+{
+  "main/tabs/dash": {
+    "isFragment": true,
+    "asStarter": false,
+    "needLogin": false,
+    "pageUrl": "main/tabs/dash",
+    "className": "com.lindroy.imoocjetpack.ui.dashboard.DashboardFragment",
+    "id": 2096393017
+  },
+  "main/tabs/home": {
+    "isFragment": true,
+    "asStarter": true,
+    "needLogin": false,
+    "pageUrl": "main/tabs/home",
+    "className": "com.lindroy.imoocjetpack.ui.home.HomeFragment",
+    "id": 1111439117
+  },
+  "main/tabs/notification": {
+    "isFragment": true,
+    "asStarter": false,
+    "needLogin": false,
+    "pageUrl": "main/tabs/notification",
+    "className": "com.lindroy.imoocjetpack.ui.notifications.NotificationsFragment",
+    "id": 466132255
+  }
+}
