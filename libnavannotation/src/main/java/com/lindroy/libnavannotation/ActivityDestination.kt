@@ -1,7 +1,5 @@
 package com.lindroy.libnavannotation
 
-import java.lang.annotation.ElementType
-import java.lang.annotation.Target
 
 /**
  * @author Lin
@@ -9,7 +7,7 @@ import java.lang.annotation.Target
  * @function
  */
 
-@Target(ElementType.TYPE)
+@kotlin.annotation.Target(AnnotationTarget.CLASS)
 annotation class ActivityDestination(
     val pageUrl: String ,
     val needLogin: Boolean = false,

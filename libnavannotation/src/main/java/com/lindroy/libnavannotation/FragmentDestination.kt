@@ -1,8 +1,5 @@
 package com.lindroy.libnavannotation
 
-import java.lang.annotation.ElementType
-import java.lang.annotation.Target
-
 /**
  * @author Lin
  * @date 2020/3/8
@@ -10,7 +7,7 @@ import java.lang.annotation.Target
  */
 
 
-@Target(ElementType.TYPE)
+@kotlin.annotation.Target(AnnotationTarget.CLASS)
 annotation class FragmentDestination(
    val pageUrl: String ,
    val needLogin: Boolean = false,
