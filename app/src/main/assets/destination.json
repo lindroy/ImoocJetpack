@@ -1,1 +1,42 @@
-{"main/tabs/dash":{"isFragment":true,"asStarter":false,"needLogin":false,"pageUrl":"main/tabs/dash","className":"com.lindroy.imoocjetpack.ui.dashboard.DashboardFragment","id":2096393017},"main/tabs/home":{"isFragment":true,"asStarter":true,"needLogin":false,"pageUrl":"main/tabs/home","className":"com.lindroy.imoocjetpack.ui.home.HomeFragment","id":1111439117},"main/tabs/notification":{"isFragment":true,"asStarter":false,"needLogin":false,"pageUrl":"main/tabs/notification","className":"com.lindroy.imoocjetpack.ui.notifications.NotificationsFragment","id":466132255}}
+{
+  "main/tabs/sofa": {
+    "isFragment": true,
+    "asStarter": false,
+    "needLogin": false,
+    "pageUrl": "main/tabs/sofa",
+    "className": "com.lindroy.imoocjetpack.ui.sofa.SofaFragment",
+    "id": 312670733
+  },
+  "main/tabs/home": {
+    "isFragment": true,
+    "asStarter": true,
+    "needLogin": false,
+    "pageUrl": "main/tabs/home",
+    "className": "com.lindroy.imoocjetpack.ui.home.HomeFragment",
+    "id": 1111439117
+  },
+  "main/tabs/publish": {
+    "isFragment": false,
+    "asStarter": false,
+    "needLogin": true,
+    "pageUrl": "main/tabs/publish",
+    "className": "com.lindroy.imoocjetpack.ui.publish.PublishActivity",
+    "id": 1615144722
+  },
+  "main/tabs/find": {
+    "isFragment": true,
+    "asStarter": false,
+    "needLogin": false,
+    "pageUrl": "main/tabs/find",
+    "className": "com.lindroy.imoocjetpack.ui.find.FindFragment",
+    "id": 1564250291
+  },
+  "main/tabs/my": {
+    "isFragment": true,
+    "asStarter": false,
+    "needLogin": false,
+    "pageUrl": "main/tabs/my",
+    "className": "com.lindroy.imoocjetpack.ui.my.MyFragment",
+    "id": 1376501549
+  }
+}

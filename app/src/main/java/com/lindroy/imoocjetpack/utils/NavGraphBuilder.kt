@@ -15,7 +15,7 @@ import androidx.navigation.fragment.FragmentNavigator
  */
 object NavGraphBuilder {
     fun build(activity:FragmentActivity,controller:NavController){
-        val provider = controller.navigatorProvider;
+        val provider = controller.navigatorProvider
         val fragmentNavigator = provider.getNavigator<FragmentNavigator>(FragmentNavigator::class.java)
         val activityNavigator = provider.getNavigator<ActivityNavigator>(ActivityNavigator::class.java)
         val navGraph = NavGraph(NavGraphNavigator(provider))
@@ -29,6 +29,8 @@ object NavGraphBuilder {
                 })
             }else{
                 navGraph.addDestination(activityNavigator.createDestination().apply {
+                    id = it.id
+                    addDeepLink(it.pageUrl)
                     setComponentName(ComponentName(AppGlobal.application.packageName,it.className))
                 })
             }

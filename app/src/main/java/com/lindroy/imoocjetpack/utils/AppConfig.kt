@@ -2,6 +2,7 @@ package com.lindroy.imoocjetpack.utils
 
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.TypeReference
+import com.lindroy.imoocjetpack.model.BottomBar
 import com.lindroy.imoocjetpack.model.Destination
 import java.io.BufferedReader
 import java.io.IOException
@@ -17,6 +18,11 @@ object AppConfig {
 
     val desiConfig:HashMap<String,Destination> by  lazy {
         JSON.parseObject(parseFile("destination.json"), object :TypeReference<HashMap<String,Destination>>(){} )
+    }
+
+
+    val bottomBar:BottomBar by lazy {
+        JSON.parseObject(parseFile("main_tabs_config.json"), object :TypeReference<BottomBar>(){} )
     }
 
     /**

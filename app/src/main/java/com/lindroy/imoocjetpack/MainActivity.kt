@@ -1,13 +1,13 @@
 package com.lindroy.imoocjetpack
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.lindroy.imoocjetpack.utils.NavGraphBuilder
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * @author Lin
@@ -16,24 +16,36 @@ import com.lindroy.imoocjetpack.utils.NavGraphBuilder
  * @Description
  * http://123.56.232.18:8080/serverdemo/swagger-ui.html#/comment-controller
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+
+    private val navController by lazy {
+        findNavController(R.id.nav_host_fragment)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+//            )
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
        NavGraphBuilder.build(this,navController)
+
+        navView.setOnNavigationItemSelectedListener(this)
     }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        navController.navigate(item.itemId)
+        //返回为true时表示按钮选中，需要着色和放缩，这里需要根据是否有标题文字来判断
+        return item.title.isNotEmpty()
+    }
+
 }
