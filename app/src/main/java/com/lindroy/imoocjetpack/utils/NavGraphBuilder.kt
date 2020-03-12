@@ -6,7 +6,7 @@ import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.NavGraphNavigator
-import androidx.navigation.fragment.FragmentNavigator
+import com.lindroy.imoocjetpack.navigator.FixFragmentNavigator
 
 /**
  * @author Lin
@@ -14,11 +14,14 @@ import androidx.navigation.fragment.FragmentNavigator
  * @function
  */
 object NavGraphBuilder {
-    fun build(activity:FragmentActivity,controller:NavController){
+    fun build(activity:FragmentActivity,controller:NavController,containerId:Int){
         val provider = controller.navigatorProvider
-        val fragmentNavigator = provider.getNavigator<FragmentNavigator>(FragmentNavigator::class.java)
-        val activityNavigator = provider.getNavigator<ActivityNavigator>(ActivityNavigator::class.java)
         val navGraph = NavGraph(NavGraphNavigator(provider))
+//        val fragmentNavigator = provider.getNavigator<FragmentNavigator>(FragmentNavigator::class.java)
+        val fragmentNavigator = FixFragmentNavigator(activity,activity.supportFragmentManager,containerId)
+        provider.addNavigator(fragmentNavigator)
+
+        val activityNavigator = provider.getNavigator<ActivityNavigator>(ActivityNavigator::class.java)
         val destConfig = AppConfig.desiConfig
         destConfig.values.forEach {
             if (it.isFragment){

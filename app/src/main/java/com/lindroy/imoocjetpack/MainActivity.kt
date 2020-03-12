@@ -3,7 +3,8 @@ package com.lindroy.imoocjetpack
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.lindroy.imoocjetpack.utils.NavGraphBuilder
@@ -18,10 +19,11 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
-
-    private val navController by lazy {
+    /*private val navController by lazy {
         findNavController(R.id.nav_host_fragment)
-    }
+    }*/
+
+    private lateinit var navController:NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +37,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 //            )
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        val hostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        navController = NavHostFragment.findNavController(hostFragment!!)
+
         navView.setupWithNavController(navController)
 
-       NavGraphBuilder.build(this,navController)
+        NavGraphBuilder.build(this, navController,hostFragment!!.id)
 
         navView.setOnNavigationItemSelectedListener(this)
     }
